@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable import/prefer-default-export */
 
 interface Model <T> {
   create(obj: T): Promise<T>,
@@ -12,4 +12,4 @@ export {
   Model,
 };
 
-/* eslint-enable */
+/* eslint-enable import/prefer-default-export */
