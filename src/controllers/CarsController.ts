@@ -13,7 +13,7 @@ class CarsController {
       console.log(data);
     } catch (e) {
       console.error(e);
-      res.status(400).json({ message: e });
+      return res.status(400).json({ message: e });
     }
     next();
   }
