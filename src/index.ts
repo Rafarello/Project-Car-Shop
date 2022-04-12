@@ -1,6 +1,12 @@
 import server from './server';
+import CarsRouter from './routers/CarsRouter';
+
+// Adicionando as rotas da API através da função addRouter
+// CarsRouter já foi importado como CarsRouter.router
+
+server.addRouter(CarsRouter);
 
 // Comando para iniciar a API
-// Mais informações se encontra no arquivo app.ts
+// Melhor visualização no arquivo app.ts
 
 server.startServer();

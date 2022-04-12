@@ -1,6 +1,6 @@
-import express = require('express');
 import CarsController from '../controllers/CarsController';
-
+import { Car } from '../interfaces/CarInterface';
+import CustomRouter from './Router';
 // Código abaixo usado anteriormente em projeto Trybe Futebol Clube
 
 // Vídeos usados como referência(no projeto TFC):
@@ -10,23 +10,8 @@ import CarsController from '../controllers/CarsController';
 // # Como criar o Server/APP com Class:
 // https://www.youtube.com/watch?v=EQlMDxnGZpA&ab_channel=HighTechCursosF%C3%A1bricadeProgramador
 
-class CarsRoutes {
-  router: express.Router;
+const CarsRouter = new CustomRouter<Car>();
 
-  constructor() {
-    this.router = express.Router();
-    this.loadRoutes();
-  }
+CarsRouter.addRoute(CarsController);
 
-  loadRoutes() {
-    this.router.post(
-      '/cars',
-      CarsController.create,
-    );
-    this.router.get(
-      '/cars',
-    );
-  }
-}
-
-export default new CarsRoutes().router;
+export default CarsRouter.router;
