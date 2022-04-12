@@ -21,7 +21,7 @@ class CarsRoutes {
   loadRoutes() {
     this.router.post(
       '/cars',
-      CarsController.validateInfo,
+      CarsController.create,
     );
     this.router.get(
       '/cars',

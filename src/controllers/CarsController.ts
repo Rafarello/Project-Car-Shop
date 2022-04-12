@@ -1,36 +1,54 @@
-import { NextFunction, Request, Response } from 'express';
-import { CarSchema } from '../interfaces/CarInterface';
+import { Request, Response } from 'express';
+import Controller, { RequestWithBody, ResponseError } from '.';
+import { Car } from '../interfaces/CarInterface';
+import CarsService from '../services/CarsService';
 
-class CarsController {
-  public static async validateInfo(
-    req: Request, 
-    res: Response, 
-    next: NextFunction,
+class CarsController extends Controller<Car> {
+  private _route : string;
+
+  constructor(
+    service = new CarsService(),
+    route = '/cars',
   ) {
-    try {
-      const { body } = req;
-      const data = CarSchema.parse(body);
-      console.log(data);
-    } catch (e) {
-      console.error(e);
-      return res.status(400).json({ message: e });
-    }
-    next();
+    super(service);
+    this._route = route;
   }
 
-  public static async newCar(req: Request, res: Response) {
-    const { model, year, color, buyValue, seatsQty, doorsQty } = req.body;
-    const newCarModel = {
-      model,
-      year,
-      color,
-      buyValue,
-      seatsQty,
-      doorsQty,
-    };
-    console.log(newCarModel);
-    return res.status(200).json({ message: 'Ok' });
-  }
+  get route() { return this._route; }
+
+  create = async (
+    req: RequestWithBody<Car>,
+    res: Response<Car | ResponseError>,
+  ): Promise<typeof res> => {
+    const { body } = req;
+    try {
+      const newCar = await this.service.create(body);
+      
+      if (!newCar) {
+        return res.status(500).json({ error: this.errors.internal });
+      }
+      if ('error' in newCar) {
+        return res.status(400).json(newCar);
+      }
+      return res.status(201).json(newCar);
+    } catch (e) {
+      return res.status(500).json({ error: this.errors.internal });
+    }
+  };
+
+  readOne = async (
+    req: Request<{ id: string }>,
+    res: Response<Car | ResponseError>,
+  ): Promise<typeof res> => {
+    const { id } = req.params;
+    try {
+      const car = await this.service.readOne(id);
+      return car 
+        ? res.json(car) : res.status(404).json({ error: this.errors.notFound });
+    } catch (e) {
+      return res.status(500).json({ error: this.errors.internal });
+    }
+  };
 }
 
-export default CarsController;
+export default new CarsController();
