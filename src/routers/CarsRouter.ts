@@ -1,4 +1,5 @@
 import express = require('express');
+import CarsController from '../controllers/CarsController';
 
 // Código abaixo usado anteriormente em projeto Trybe Futebol Clube
 
@@ -20,6 +21,7 @@ class CarsRoutes {
   loadRoutes() {
     this.router.post(
       '/cars',
+      CarsController.validateInfo,
     );
     this.router.get(
       '/cars',
