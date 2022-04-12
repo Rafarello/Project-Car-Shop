@@ -21,4 +21,8 @@ export const CarSchema = VehicleSchema.extend({
     .lte(7, { message: '\'seatsQty\' must be equal or lower than 7' }),
 }).strip();
 
+export const IdSchema = z.object({
+  id: z.number().min(24).max(24),
+});
+
 export type Car = z.infer<typeof CarSchema>;

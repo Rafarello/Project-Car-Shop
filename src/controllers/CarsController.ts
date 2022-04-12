@@ -41,6 +41,10 @@ class CarsController extends Controller<Car> {
     res: Response<Car | ResponseError>,
   ): Promise<typeof res> => {
     const { id } = req.params;
+    if (id.length !== 24 || id === undefined) {
+      return res.status(400)
+        .json({ error: this.errors.badRequest });
+    }
     try {
       const car = await this.service.readOne(id);
       return car 
