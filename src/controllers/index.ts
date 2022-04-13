@@ -21,7 +21,7 @@ abstract class Controller<T> {
 
   protected errors = ControllerErrors;
 
-  constructor(protected service: Service<T>) { }
+  constructor(public service: Service<T>) { }
 
   abstract create(
     req: RequestWithBody<T>,
@@ -46,7 +46,12 @@ abstract class Controller<T> {
   ): Promise<typeof res>;
 
   abstract update(
-    _req: Request,
+    req: Request<{ id: string }, T>,
+    res: Response<T | ResponseError>
+  ): Promise<typeof res | null>;
+
+  abstract delete(
+    req: Request<{ id: string; }>,
     res: Response<T | ResponseError>
   ): Promise<typeof res | null>;
 }

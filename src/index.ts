@@ -10,3 +10,5 @@ server.addRouter(CarsRouter);
 // Melhor visualização no arquivo app.ts
 
 server.startServer();
+
+export default server;

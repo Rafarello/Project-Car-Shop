@@ -24,9 +24,16 @@ class CarsService extends Service<Car> {
     if (!parsed.success) {
       return { error: parsed.error };
     }
-    const data = await this.model.update(id, obj);
-    console.log(data);
-    
+    const data = await this.model.update(id, obj);    
+    return data;
+  };
+
+  delete = async (id: string): Promise<Car | null | ServiceError> => {
+    const parsedID = IdSchema.safeParse(id);
+    if (!parsedID.success) {
+      return { error: parsedID.error };
+    }
+    const data = await this.model.delete(id);    
     return data;
   };
 }
