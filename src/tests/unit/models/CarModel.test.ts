@@ -23,6 +23,10 @@ describe('Teste unitário do model da rota /cars', () => {
   const updateOneCarId = updateOneCar._id;
   const updatedCarResponse = MockController.mockUpdatedCar;
 
+  // Mock do teste 05
+  const deleteOneCar = MockController.mockNewCar;
+  const deleteOneCarId = deleteOneCar._id;
+  const allcarsAfterDeleteResponse = MockController.mockAllCarsAfterDelete
   // Criando uma nova instância do Model
   const CarModel = new CarsModel()
 
@@ -31,6 +35,7 @@ describe('Teste unitário do model da rota /cars', () => {
     sinon.stub(CarModel, "read").resolves(allcarsResponse);
     sinon.stub(CarModel, "readOne").resolves(findOneCarResponse);
     sinon.stub(CarModel, "update").resolves(updatedCarResponse);
+    sinon.stub(CarModel, "delete").resolves(null)
   });
 
   after(() => {
@@ -77,6 +82,12 @@ describe('Teste unitário do model da rota /cars', () => {
     expect(updatedCar).to.have.property('doorsQty', 2);
     expect(updatedCar).to.have.property('seatsQty', 2);
     expect(updatedCar).to.have.property('_id', '62572a6880abf4bd240c0e52');
+  });
+
+  it('05 - Deve ser possível deletar do banco de dados um carro específico', async () => {
+    const deleteResponse = await CarModel.delete(deleteOneCarId);
+    expect(deleteResponse).to.equal(null)
+    
   });
   
 

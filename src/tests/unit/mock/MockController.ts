@@ -49,6 +49,10 @@ class MockController {
     this.mockNewCar,
     this.mockAnotherCar,
   ]
+
+  public static mockAllCarsAfterDelete = [
+    this.mockAnotherCar
+  ]
   // public static mockCreateBadRequest(): ServiceError {
   //   return JSON.parse(`"error" : {
   //     "issues": [
