@@ -24,9 +24,6 @@ class MockController {
     seatsQty: 2,
     _id: "62572a6880abf4bd240c0e52"
   }
-      public static mockCreateCompleted() {
-    return this.mockNewCar
-  }
 
   // public static mockCreateBadRequest(): ServiceError {
   //   return JSON.parse(`"error" : {

@@ -14,7 +14,7 @@ chai.use(chaiHttp);
 const { expect } = chai;
 const app = server.getApp()
 
-describe('Testa se é possível criar um novo carro no banco de dados com os dados corretos', () => {
+describe('Testa a API se é possível criar um novo carro no banco de dados com os dados corretos', () => {
   
   const body = MockController.mockGoodBodyRequest;
   let res: Response;
@@ -27,7 +27,7 @@ describe('Testa se é possível criar um novo carro no banco de dados com os dad
 
     sinon
       .stub(CarsController.service, "create")
-      .resolves(MockController.mockCreateCompleted());
+      .resolves(MockController.mockNewCar);
   });
 
   after(() => {
@@ -35,6 +35,9 @@ describe('Testa se é possível criar um novo carro no banco de dados com os dad
   })
 
   it('Deve criar e retornar um objeto com "_id" e as informações do carro', async () => {
+    console.log(res.body);
+    
+    
     expect(res.body).to.have.property('model', 'Ferrari Maranello');
     expect(res.body).to.have.property('year', 1963);
     expect(res.body).to.have.property('color', 'red');
@@ -42,7 +45,7 @@ describe('Testa se é possível criar um novo carro no banco de dados com os dad
     expect(res.body).to.have.property('doorsQty', 2);
     expect(res.body).to.have.property('seatsQty', 2);
     expect(res.body).to.have.property('_id');
-    expect(res.body['_id']).to.have.length(24)
+    expect(res.body['_id']).to.have.length(24);
   });
 
 });
