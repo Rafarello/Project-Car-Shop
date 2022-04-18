@@ -7,29 +7,37 @@ import MockController from '../mock/MockController';
 
 describe('Teste unitário do model da rota /cars', () => {
 
-  // Mockando as Responses das funções do Model
-  const newCarResponse = MockController.mockNewCar;
-  const allcarsResponse = MockController.mockAllCars;
-  const findOneCarResponse = MockController.mockNewCar; 
-  
-  // Mockando os Requests das funções do Model
+  // Mock do teste 01
   const newCarRequest = MockController.mockGoodBodyRequest;
+  const newCarResponse = MockController.mockNewCar;
+
+  // Mock do teste 02
+  const allcarsResponse = MockController.mockAllCars;
+
+  // Mock do teste 03
+  const findOneCarResponse = MockController.mockNewCar; 
   const findOneCarRequest = findOneCarResponse._id;
-  
+
+  // Mock do teste 04
+  const updateOneCar = MockController.mockNewCar;
+  const updateOneCarId = updateOneCar._id;
+  const updatedCarResponse = MockController.mockUpdatedCar;
+
   // Criando uma nova instância do Model
   const CarModel = new CarsModel()
 
   before(async () => {
     sinon.stub(CarModel, "create").resolves(newCarResponse);
     sinon.stub(CarModel, "read").resolves(allcarsResponse);
-    sinon.stub(CarModel, "readOne").resolves(findOneCarResponse)
+    sinon.stub(CarModel, "readOne").resolves(findOneCarResponse);
+    sinon.stub(CarModel, "update").resolves(updatedCarResponse);
   });
 
   after(() => {
     sinon.restore();
   })
 
-  it('Deve ser possível criar um carro e retornar as informações do banco de dados', async () => {
+  it('01 - Deve ser possível criar um carro e retornar as informações do banco de dados', async () => {
     const newCar = await CarModel.create(newCarRequest);
     expect(newCar).to.deep.equal(newCarResponse);
     expect(newCar).to.have.property('model', 'Ferrari Maranello');
@@ -41,13 +49,13 @@ describe('Teste unitário do model da rota /cars', () => {
     expect(newCar).to.have.property('_id', '62572a6880abf4bd240c0e52');
   });
 
-  it('Deve ser possível pegar do banco de dados todas as informações de todos os carros', async () => {
+  it('02 - Deve ser possível pegar do banco de dados todas as informações de todos os carros', async () => {
     const allcars = await CarModel.read();
     expect(allcars).to.deep.equal(allcarsResponse);
     expect(allcars).to.have.length(2);
   });
 
-  it('Deve ser possível pegar do banco de dados todas as informações de um carro específico', async () => {
+  it('03 - Deve ser possível pegar do banco de dados todas as informações de um carro específico', async () => {
     const oneCar = await CarModel.readOne(findOneCarRequest);
     expect(oneCar).to.deep.equal(findOneCarResponse);
     expect(oneCar).to.have.property('model', 'Ferrari Maranello');
@@ -59,6 +67,17 @@ describe('Teste unitário do model da rota /cars', () => {
     expect(oneCar).to.have.property('_id', '62572a6880abf4bd240c0e52');
   });
 
+  it('04 - Deve ser possível atualizar as informações de um carro específico', async () => {
+    const updatedCar = await CarModel.update(updateOneCarId, updateOneCar);    
+    expect(updatedCar).to.deep.equal(updatedCarResponse);
+    expect(updatedCar).to.have.property('model', 'Lamborghini Gallardo');
+    expect(updatedCar).to.have.property('year', 2006);
+    expect(updatedCar).to.have.property('color', 'green');
+    expect(updatedCar).to.have.property('buyValue', 5000000);
+    expect(updatedCar).to.have.property('doorsQty', 2);
+    expect(updatedCar).to.have.property('seatsQty', 2);
+    expect(updatedCar).to.have.property('_id', '62572a6880abf4bd240c0e52');
+  });
   
 
 });

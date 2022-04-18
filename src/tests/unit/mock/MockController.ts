@@ -35,6 +35,16 @@ class MockController {
     _id: "625877b223db58e81f80e79a"
   }
 
+  public static mockUpdatedCar = {
+    model: "Lamborghini Gallardo",
+    year: 2006,
+    color: "green",
+    buyValue: 5000000,
+    doorsQty: 2,
+    seatsQty: 2,
+    _id: "62572a6880abf4bd240c0e52"
+  }
+
   public static mockAllCars = [
     this.mockNewCar,
     this.mockAnotherCar,
