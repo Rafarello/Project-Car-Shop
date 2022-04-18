@@ -26,7 +26,6 @@ describe('Teste unitário do model da rota /cars', () => {
   // Mock do teste 05
   const deleteOneCar = MockController.mockNewCar;
   const deleteOneCarId = deleteOneCar._id;
-  const allcarsAfterDeleteResponse = MockController.mockAllCarsAfterDelete
   // Criando uma nova instância do Model
   const CarModel = new CarsModel()
 
