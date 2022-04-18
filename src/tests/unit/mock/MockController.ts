@@ -20,7 +20,7 @@ class MockController {
     year: 1963,
     color: "red",
     buyValue: 3500000,
-    doorsQty: 4,
+    doorsQty: 2,
     seatsQty: 2,
     _id: "62572a6880abf4bd240c0e52"
   }
