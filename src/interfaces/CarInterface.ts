@@ -22,7 +22,7 @@ export const CarSchema = VehicleSchema.extend({
 }).strip();
 
 export const IdSchema = z.string().refine((val) => val.length === 24, {
-  message: '\'id\' must be 24 characters long',
+  message: 'Id must have 24 hexadecimal characters',
 });
 
 export type Car = z.infer<typeof CarSchema>;

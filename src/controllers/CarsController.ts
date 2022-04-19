@@ -45,7 +45,7 @@ class CarsController extends Controller<Car> {
     const { id } = req.params;
     if (id.length !== 24 || id === undefined) {
       return res.status(400)
-        .json({ error: this.errors.badRequest });
+        .json({ error: this.errors.badId });
     }
     try {
       const car = await this.service.readOne(id);
@@ -59,7 +59,7 @@ class CarsController extends Controller<Car> {
 
   update = async (
     req: Request<{ id: string }, Car>,
-    res: Response<Car | ResponseError>,
+    res: Response<Car | ResponseError >,
   ): Promise<typeof res | null> => {
     const { id } = req.params;
     const { body } = req;
@@ -69,9 +69,9 @@ class CarsController extends Controller<Car> {
         return res.status(404).json({ error: this.errors.notFound });
       }
       if ('error' in carUpdated) {
-        return res.status(400).json(carUpdated);
+        return res.status(400).json({ error: this.errors.badId });
       }
-      return res.status(201).json(carUpdated);
+      return res.status(200).json(carUpdated);
     } catch (error) {
       return res.status(500).json({ error: this.errors.internal });
     }
