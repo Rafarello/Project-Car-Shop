@@ -23,10 +23,8 @@ class CarsController extends Controller<Car> {
     const { body } = req;
     try {
       const newCar = await this.service.create(body);
-      console.log(`Linha 26: ${newCar}`);
-      
+
       if (!newCar) {
-        console.log(`Linha 29: ${newCar}`);
         return res.status(500).json({ error: this.errors.internal });
       }
       if ('error' in newCar) {

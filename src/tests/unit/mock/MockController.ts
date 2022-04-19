@@ -13,6 +13,15 @@ class MockController {
     seatsQty: 2,
     doorsQty: 2
   }
+
+  public static mockAnotherGoodBodyRequest = {
+    model: "Lamborghini Gallardo",
+    year: 2006,
+    color: "green",
+    buyValue: 5000000,
+    doorsQty: 2,
+    seatsQty: 2,
+  }
     
   
   public static mockNewCar = {
