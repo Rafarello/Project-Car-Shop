@@ -21,7 +21,7 @@
 ###### - O arquivo deve ficar no diretório `/src/interfaces/` e  ter o nome de `ModelInterface.ts`.
 ###### - A interface deve ser exportada com o nome de `Model` e **não deve** ser exportada de forma padrão.
 
-#### 02 - Criar a interface Vehicle genérica
+#### 02 - Criar a interface ```Vehicle``` genérica
 
 ###### A interface `Vehicle`, que será genérica, poderá ser usada para criar os tipos de veículo, como por exemplo carro, moto e caminhão. Deverá ter todos os atributos comuns de todos os veículos, que são:
 
@@ -32,17 +32,17 @@
 ###### - `buyValue`: Valor de compra do veículo. Deve receber apenas números inteiros;
 ###### - O arquivo deve ficar no diretório `/src/interfaces/` e ter o nome de `VehicleInterface.ts`.
 
-#### 03 - Criar a interface Car a partir da interface Vehicle
+#### 03 - Criar a interface ```Car``` a partir da interface ```Vehicle```
 
-#### 04 - Criar uma rota para o endpoint /cars onde seja possível cadastrar um novo carro
+#### 04 - Criar uma rota para o endpoint ```/cars``` onde seja possível cadastrar um novo carro
 
-#### 05 - Escrever testes para cobrir 15% da camada de model
+#### 05 - Escrever testes para cobrir 15% da camada de ```model```
 
-#### 06 - Escrever testes para cobrir 15% da camada de service
+#### 06 - Escrever testes para cobrir 15% da camada de ```service```
 
-#### 07 - Escrever testes para cobrir 15% da camada de controller
+#### 07 - Escrever testes para cobrir 15% da camada de ```controller```
 
-#### 08 - Criar uma rota para o endpoint /cars onde seja possível listar todos os carros registrados
+#### 08 - Criar uma `rota` para o endpoint /cars onde seja possível listar todos os carros registrados
 
 #### 09 - Criar uma rota para o endpoint /cars/id onde seja possível listar um único carro através do seu id
 
