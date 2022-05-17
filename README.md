@@ -68,7 +68,17 @@
 
 #### 08 - Criar uma rota para o endpoint /cars onde seja possível listar todos os carros registrados
 
+###### A rota deve receber uma requisição `GET` para receber todos os veículos do tipo carro registrados no banco de dados. Será verificado que:
+###### - É possível listar os carros com sucesso;
+###### - Retorna uma lista vazia se não houver carros;
+
 #### 09 - Criar uma rota para o endpoint /cars/id onde seja possível listar um único carro através do seu id
+
+###### A rota deve receber uma requisição `GET` para receber determinado veículo do tipo carro que possua o `id` passado como parâmetro na rota. Será verificado que:
+
+###### - É possível listar um carro com sucesso através do id;
+###### - É disparado o erro `400` `Id must have 24 hexadecimal characters` caso o id possua menos que 24 caracteres;
+###### - É disparado o erro `404` `Object not found` caso o id possua 24 caracteres mas é inválido;
 
 #### 10 - Escrever testes para cobrir 30% da camada de model
 
@@ -77,6 +87,22 @@
 #### 12 - Escrever testes para cobrir 30% da camada de controller
 
 #### 13 - Crie uma rota para o endpoint /cars/id, onde é possível atualizar o registro de um carro através do seu id
+
+###### A rota deve receber uma requisição `PUT` para atualizar determinado veículo do tipo carro que possua o `id` passado como parâmetro na rota. Será verificado que:
+###### - É disparado o erro `404` `Object not found` caso o id possua 24 caracteres mas é inválido;
+###### - É disparado o erro `400` `Id must have 24 hexadecimal characters` caso o id possua menos que 24 caracteres;
+###### - É disparado o erro `400` caso o `body` esteja incompleto;
+###### - Será verificado que um carro é atualizado com sucesso;
+###### - Sua API deve responder com status http `200` e o seguinte body:
+ ```JSON
+    _id: "4edd40c86762e0fb12000003",
+    model: "Fiat Uno",
+    year: 1963,
+    color: "blue",
+    buyValue: 3500,
+    seatsQty: 4,
+    doorsQty: 4
+ ```
 
 #### 14 - Escrever testes para cobrir 60% da camada de model
 
