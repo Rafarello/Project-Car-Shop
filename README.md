@@ -5,7 +5,7 @@
 
 ### *_Resumo_*:
 
-#### Uma aplicação de uma API Restful utilizando POO (Programação Orientada a Objetos), conceitos de SOLID e TDD (Desenvolvimento Dirigido por Testes).
+#### Uma aplicação de uma API Restful escrita em Typescript, utilizando POO (Programação Orientada a Objetos) e conceitos de SOLID.
 
 #### Requisitos do projeto: 
 
@@ -130,3 +130,14 @@
 #### Um detalhe que a API está configurada para rodar na Porta `3001`
 
 #### Para rodar os testes apenas utilizar `npm run test` e para ver a cobertura de linhas `npm run test:coverage`
+
+
+## Observações de aprendizado:
+
+#### - Typescript embora muito parecido com Javascript, foi necessário uma curva de aprendizado de como utilizar os tipos nas requisições e respostas. No final eu preferi utilizar Typescript ao invés de Javascript para APIs pela facilidade em observar o que cada camada precisava e o que estava esperando como resposta. Com isso me deu uma segurança maior ao construir o código.
+
+#### - Tentei utilizar TDD (Desenvolvimento dirigido por testes), mas ainda não estou totalmente confortável em escrever o código de teste antes do projeto. Mais pelo fato que não consigo totalmente visualizar a resposta esperada.
+
+#### - Primeira vez utilizando classes genéricas, onde consegui utilizar atributos de herança e até realizar polimorfismo
+
+#### - Acredito que consegui implementar bem a metodologia SOLID. Na Trybe sempre foi incentivado a trabalhar dessa maneira, então desde sempre tentei a diminuir a complexidade das funções e delegar mais funções para tarefas pequenas e com responsabilidades distintas.
