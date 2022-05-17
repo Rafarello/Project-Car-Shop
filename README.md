@@ -5,4 +5,8 @@
 
 ### *_Resumo_*:
 
-#### Uma aplicação de uma API Restful utilizando POO (Programação Orientada a Objetos) e conceitos de solid
+#### Uma aplicação de uma API Restful utilizando POO (Programação Orientada a Objetos) e conceitos de SOLID
+
+#### Requisitos desse projeto: 
+
+##### 01 - Crie a interface Model genérica:
