@@ -23,6 +23,15 @@
 
 #### 02 - Criar a interface Vehicle genérica
 
+###### A interface `Vehicle`, que será genérica, poderá ser usada para criar os tipos de veículo, como por exemplo carro, moto e caminhão. Deverá ter todos os atributos comuns de todos os veículos, que são:
+
+###### - `model`: Marca e/ou modelo do veículo. Deve ser uma string com, pelo menos, 3 caracteres;
+###### - `year`: Ano de fabricação do veículo. Deve ser maior ou igual a 1900, porém menor ou igual a 2022;
+###### - `color`: Cor principal do veículo. Deve ser uma string com, pelo menos, 3 caracteres;
+###### - `status`: Status que define se um veículo pode ou não ser comprado. Deve receber valores booleanos e deve ser opcional;
+###### - `buyValue`: Valor de compra do veículo. Deve receber apenas números inteiros;
+###### - O arquivo deve ficar no diretório `/src/interfaces/` e ter o nome de `VehicleInterface.ts`.
+
 #### 03 - Criar a interface Car a partir da interface Vehicle
 
 #### 04 - Criar uma rota para o endpoint /cars onde seja possível cadastrar um novo carro
