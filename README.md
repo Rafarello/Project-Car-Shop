@@ -111,3 +111,9 @@
 #### 16 - Escrever testes para cobrir 60% da camada de controller
 
 #### 17 - Crie uma rota para o endpoint /cars/id para excluir os registros de um carro
+
+###### A rota deve receber uma requisição `DELETE` para excluirr determinado veículo do tipo carro que possua o `id` passado como parâmetro na rota. Será verificado que:
+###### - É disparado o erro `404` `Object not found` caso o id possua 24 caracteres mas é inválido;
+###### - É disparado o erro `400` `Id must have 24 hexadecimal characters` caso o id possua menos que 24 caracteres;
+###### - Será verificado que um carro é removido com sucesso;
+###### - Sua API deve responder com status http `204` sem body;
