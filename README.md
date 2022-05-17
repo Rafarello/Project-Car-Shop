@@ -121,12 +121,12 @@
 
 ## Como iniciar o projeto:
 
-### - Primeiramente faça o clone em sua máquina
+#### - Primeiramente faça o clone em sua máquina
 
-### - Segundo passo é instalar as dependências com `npm install`
+#### - Segundo passo é instalar as dependências com `npm install`
 
-### - Terceiro passo para rodar a aplicação é utilizar o comando `npm run dev`
+#### - Terceiro passo para rodar a aplicação é utilizar o comando `npm run dev`
 
-### Um detalhe que a API está configurada para rodar na Porta `3001`
+#### Um detalhe que a API está configurada para rodar na Porta `3001`
 
-### Para rodar os testes apenas utilizar `npm run test` e para ver a cobertura de linhas `npm run test:coverage`
+#### Para rodar os testes apenas utilizar `npm run test` e para ver a cobertura de linhas `npm run test:coverage`
