@@ -42,7 +42,7 @@
 
 #### 07 - Escrever testes para cobrir 15% da camada de ```controller```
 
-#### 08 - Criar uma `rota` para o endpoint /cars onde seja possível listar todos os carros registrados
+#### 08 - Criar uma rota para o endpoint /cars onde seja possível listar todos os carros registrados
 
 #### 09 - Criar uma rota para o endpoint /cars/id onde seja possível listar um único carro através do seu id
 
