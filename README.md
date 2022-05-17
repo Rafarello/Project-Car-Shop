@@ -34,7 +34,31 @@
 
 #### 03 - Criar a interface ```Car``` a partir da interface ```Vehicle```
 
+######  interface `Car`, de modo que ela possua todos os atributos da interface `Vehicle` e, também, os atributos:
+###### - `doorsQty`: Quantidade de portas de um carro. Deve ser maior ou igual a 2 e menor ou igual a 4;
+###### - `seatsQty`: Quantidade de assentos disponíveis no carro. Deve ser maior ou igual a 2 e menor ou igual a 7;
+###### - O arquivo deve ficar no diretório `/src/interfaces/` e  ter o nome de `CarInterface.ts`.
+
 #### 04 - Criar uma rota para o endpoint ```/cars``` onde seja possível cadastrar um novo carro
+
+###### A rota deve receber uma requisição `POST` para cadastrar um veículo do tipo carro. Será verificado que:
+###### - A rota retorna erro `400` caso a requisição receba um objeto vazio;
+###### - A rota retorna erro `400` ao tentar criar um carro com quantidade de assentos inferior a 2;
+###### - A rota retorna erro `400` ao tentar criar um carro com quantidade de portas inferior a 2;
+###### - A rota retorna erro `400` ao tentar criar um carro sem `model`, `year`, `color`, `status` e `buyValue`;
+###### - A rota retorna erro `400` ao tentar criar um carro sem `doorsQty` e `seatsQty`;
+###### - Não é possível criar um carro se os atributos estiverem com tipos errados;
+###### - É possível criar um carro se todos os parametros forem passados corretamente;
+###### - Sua API deve responder com status http `201` e o seguinte body:
+ ```JSON
+    _id: "4edd40c86762e0fb12000003",
+    model: "Ferrari Maranello",
+    year: 1963,
+    color: "red",
+    buyValue: 3500000,
+    seatsQty: 2,
+    doorsQty: 2
+ ```
 
 #### 05 - Escrever testes para cobrir 15% da camada de ```model```
 
