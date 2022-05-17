@@ -7,6 +7,8 @@
 
 #### Uma aplicação de uma API Restful escrita em Typescript, utilizando POO (Programação Orientada a Objetos) e conceitos de SOLID.
 
+###### Observação: Foi utilizado EsLint para formatação e indentação do código;
+
 #### Requisitos do projeto: 
 
 #### 01 - Criar a interface ```Model``` genérica
