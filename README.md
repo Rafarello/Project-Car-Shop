@@ -34,3 +34,11 @@
 #### 12 - Escrever testes para cobrir 30% da camada de controller
 
 #### 13 - Crie uma rota para o endpoint /cars/id, onde é possível atualizar o registro de um carro através do seu id
+
+#### 14 - Escrever testes para cobrir 60% da camada de model
+
+#### 15 - Escrever testes para cobrir 60% da camada de service
+
+#### 16 - Escrever testes para cobrir 60% da camada de controller
+
+#### 17 - Crie uma rota para o endpoint /cars/id para excluir os registros de um carro
