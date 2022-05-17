@@ -13,6 +13,14 @@
 
 ###### A interface ```Model``` será usada para fazer a conexão com o banco de dados. Ela terá funções como ```create()```, ```read()```, ```readOne()```, ```update()``` e ```delete()```. Por ser genérica, a interface recebe um tipo ```T``` qualquer e deverá esperar, em cada função, as seguintes especificações:
 
+###### - `create()`: Deve receber um objeto do tipo `T`e retornar uma Promise do tipo `T`.
+###### - `read()`: Deve retornar uma Promise contendo um array de objetos do tipo `T`.
+###### - `readOne()`: Deve receber uma string e retornar uma Promise do tipo `T` ou nula.
+###### - `update()`: Deve receber uma string e um objeto do tipo `T` e retornar uma Promise do tipo `T` ou nula.
+###### - `delete()`: Deve receber uma string e retornar uma Promise do tipo `T` ou nula.
+###### - O arquivo deve ficar no diretório `/src/interfaces/` e  ter o nome de `ModelInterface.ts`.
+###### - A interface deve ser exportada com o nome de `Model` e **não deve** ser exportada de forma padrão.
+
 #### 02 - Criar a interface Vehicle genérica
 
 #### 03 - Criar a interface Car a partir da interface Vehicle
